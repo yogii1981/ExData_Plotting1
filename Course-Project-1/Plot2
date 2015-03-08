@@ -1,0 +1,19 @@
+## Getting full dataset of Electric Power Consumption:
+Electric_power_fulldata <- read.csv("/Users/yogeshsharma/datascientisttestrepo/Exploratory_Data_Analysis/
+Data/household_power_consumption.txt", header=TRUE, sep=';', na.strings="?", nrows=2075259, check.names=FALSE
+, stringsAsFactors=FALSE, comment.char="", quote='\"')
+Electric_power_fulldata$Date <- as.Date(Electric_power_fulldata$Date, format="%d/%m/%Y")
+
+## Subsetting the full data of Electric Power Consumption:
+Electricpower_Subsetdata <- subset(Electric_power_fulldata, subset=(Date >= "2007-02-01" & Date <= "2007-02-02"))
+rm(Electric_power_fulldata)
+
+## Converting dates
+Electricpower_datetime <- paste(as.Date(Electricpower_Subsetdata$Date), Electricpower_Subsetdata$Time)
+Electricpower_Subsetdata$Datetime <- as.POSIXct(Electricpower_datetime)
+
+## Plot 2 of Electric Power Consumption
+plot(Electricpower_Subsetdata$Global_active_power~Electricpower_Subsetdata$Datetime, type="l", 
+ylab="Global Active Power (killowatts)", xlab="")
+dev.copy(png, file="plot2.png", height=480, width=480)
+dev.off()
