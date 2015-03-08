@@ -2,7 +2,7 @@ Exploratory Data Analysis
 
 Course Project 1
 
-This is my repository for the Coursera Course "Exploratory Data Analysis".
+This is the repository for the Coursera Course "Exploratory Data Analysis"- Course Project 1
 
 To run this script, please do the following:
 
